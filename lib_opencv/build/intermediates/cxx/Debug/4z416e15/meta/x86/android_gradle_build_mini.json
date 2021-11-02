@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "C:\\mycode\\OpencvUsage\\lib_opencv\\libcxx_helper\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "C:\\mycode\\OpencvUsage\\lib_opencv\\.cxx\\Debug\\4z416e15\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "C:\\mycode\\OpencvUsage\\lib_opencv\\.cxx\\Debug\\4z416e15\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "opencv_jni_shared-Debug-x86": {
+      "artifactName": "opencv_jni_shared",
+      "buildCommandComponents": [
+        "C:\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "C:\\mycode\\OpencvUsage\\lib_opencv\\.cxx\\Debug\\4z416e15\\x86",
+        "opencv_jni_shared"
+      ],
+      "abi": "x86",
+      "output": "C:\\mycode\\OpencvUsage\\lib_opencv\\.cxx\\Debug\\4z416e15\\x86\\libopencv_jni_shared.a",
+      "runtimeFiles": []
+    }
+  }
+}

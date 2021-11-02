@@ -1,0 +1,1 @@
+C:\mycode\OpencvUsage\lib_opencv\build\intermediates\cxx\Debug\5s2z1664\obj\arm64-v8a
