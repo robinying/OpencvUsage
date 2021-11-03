@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/mycode/OpencvUsage/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/mycode/OpencvUsage/app/src/main/res/layout/face_detect_surface_view.xml" value="0.13645833333333332" />
         <entry key="..\:/mycode/OpencvUsage/app/src/main/res/layout/layout_custom_progress_dialog_view.xml" value="0.3489583333333333" />
       </map>
     </option>

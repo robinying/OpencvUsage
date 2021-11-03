@@ -19,6 +19,14 @@ android {
             //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
             abiFilters "armeabi-v7a"
         }
+        externalNativeBuild {
+            cmake {
+                arguments "-DOpenCV_DIR=" + project(':lib_opencv').projectDir + "/native/jni",
+                        "-DANDROID_TOOLCHAIN=clang",
+                        "-DANDROID_STL=c++_shared"
+                targets "detection_based_tracker"
+            }
+        }
     }
 
     buildTypes {
@@ -37,6 +45,11 @@ android {
     buildFeatures{
         dataBinding = true
         viewBinding = true
+    }
+    externalNativeBuild {
+        cmake {
+            path 'jni/CMakeLists.txt'
+        }
     }
 }
 

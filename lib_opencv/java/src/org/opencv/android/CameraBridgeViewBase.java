@@ -191,8 +191,29 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         public Mat gray();
     };
 
+    @Override
     public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {
-        Log.d(TAG, "call surfaceChanged event");
+//        Log.d(TAG, "call surfaceChanged event");
+//        synchronized(mSyncObject) {
+//            if (!mSurfaceExist) {
+//                mSurfaceExist = true;
+//                checkCurrentState();
+//            } else {
+//                /** Surface changed. We need to stop camera and restart with new parameters */
+//                /* Pretend that old surface has been destroyed */
+//                mSurfaceExist = false;
+//                checkCurrentState();
+//                /* Now use new surface. Say we have it now */
+//                mSurfaceExist = true;
+//                checkCurrentState();
+//            }
+//        }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        /* Do nothing. Wait until surfaceChanged delivered */
+        Log.d(TAG, "call surfaceCreated event");
         synchronized(mSyncObject) {
             if (!mSurfaceExist) {
                 mSurfaceExist = true;
@@ -207,10 +228,6 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                 checkCurrentState();
             }
         }
-    }
-
-    public void surfaceCreated(SurfaceHolder holder) {
-        /* Do nothing. Wait until surfaceChanged delivered */
     }
 
     public void surfaceDestroyed(SurfaceHolder holder) {
@@ -316,11 +333,14 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         Log.d(TAG, "call checkCurrentState");
         int targetState;
 
-        if (mEnabled && mCameraPermissionGranted && mSurfaceExist && getVisibility() == VISIBLE) {
+        Log.d(TAG, "mEnabled:"+mEnabled+" mCameraPermissionGranted:"+mCameraPermissionGranted+"mSurfaceExist:"+mSurfaceExist+"getVisibility():"+getVisibility());
+        if (mEnabled && mCameraPermissionGranted  && getVisibility() == VISIBLE) {
             targetState = STARTED;
         } else {
             targetState = STOPPED;
         }
+
+        Log.d(TAG,"targetState:"+targetState+" mState:"+mState);
 
         if (targetState != mState) {
             /* The state change detected. Need to exit the current state and enter target state */
